@@ -83,6 +83,7 @@ button {
 .meal-img {
   height: 100%;
   width: 100%;
+ 
 }
 
 .meal-info {
@@ -98,8 +99,10 @@ button {
   text-align: center;
   opacity: 0;
   transition: ease .5s;
+  
 }
 
 .meal-img-box:hover .meal-info {
-  opacity: 1
+  opacity: 1;
+ 
 }
