@@ -62,7 +62,44 @@ button {
     cursor: pointer;
   }
 
-h3 {
+.meals-results {
   margin-top: 20px;
   margin-bottom: 20px;
+}
+#meals-results {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-gap: 1rem;
+}
+
+.meal-img-box {
+  /* height: 200px;
+  width: 200px; */
+  border: 4px solid #fff;
+  border-radius: 5px;
+  position: relative;
+}
+
+.meal-img {
+  height: 100%;
+  width: 100%;
+}
+
+.meal-info {
+  position: absolute;
+  top: 0;
+  left: 0;
+  background: rgba(0,0,0,0.7);
+  height: 100%;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  opacity: 0;
+  transition: ease .5s;
+}
+
+.meal-img-box:hover .meal-info {
+  opacity: 1
 }
