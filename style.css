@@ -62,7 +62,7 @@ button {
     cursor: pointer;
   }
 
-.meals-results {
+.meals-results, .mtb {
   margin-top: 20px;
   margin-bottom: 20px;
 }
@@ -99,10 +99,12 @@ button {
   text-align: center;
   opacity: 0;
   transition: ease .5s;
-  
 }
 
 .meal-img-box:hover .meal-info {
   opacity: 1;
- 
+}
+
+.center {
+  text-align: center;
 }
