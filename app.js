@@ -51,12 +51,39 @@ function getSingleMeal(mealID) {
 }
 
 function showSingleMealDetails(mealDetails) {
+  const ingredients = [];
+
+  // Difficult!
+  for (let i = 1; i <= 20; i++) {
+    if (mealDetails[`strIngredient${i}`]) {
+      ingredients.push(`${mealDetails[`strMeasure${i}`]} - ${mealDetails[`strIngredient${i}`]}`);
+    } else {
+      break;
+    }
+  }
+  console.log(ingredients);
+
+  // if (mealDetails[strArea]) {
+
+  // } else {
+
+  // }
+
   singleMealResult.innerHTML = `
   <h2 class="center mtb">${mealDetails.strMeal}</h2>
-  <img src="${mealDetails.strMealThumb}">
+  <img src="${mealDetails.strMealThumb}" class="img-center">
+  <div>
+  ${mealDetails.strArea ? `<h4 class="center mtb">${mealDetails.strArea}</h4>` : ''}
+  ${mealDetails.strCategory ? `<h4 class="center mtb">${mealDetails.strCategory}</h4>` : ''}
+  </div>
   <p class="mtb">${mealDetails.strInstructions}</p>
   <h3 class="mtb center">Ingredients:</h3>
-
+  <ul>
+    ${ingredients.map(ing =>
+    `<li>${ing}</li>`)
+      .join('')
+    }
+  </ul>
   `
 }
 
