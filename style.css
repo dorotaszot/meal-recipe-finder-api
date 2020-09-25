@@ -15,11 +15,12 @@ body {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  
-  max-width: 800px;
   margin: auto;
+  max-width: 800px;
+  
   text-align: center;
   margin-top: 2rem;
+  margin-bottom: 2rem;
 }
 
 .container h1 {
@@ -109,11 +110,48 @@ button {
   opacity: 1;
 }
 
+.meal-img-box:hover {
+  cursor: pointer;
+}
+
 .center {
   text-align: center;
 }
 
 .img-center {
-  width: 40%;
+  width: 60%;
   margin: auto;
+}
+
+.ingredient-block {
+  list-style-type: none;
+  display: inline-block;
+  color: #000;
+  background-color: #fff;
+  border-radius: 5px;
+  margin: 5px;
+  padding: 10px;
+  font-weight: bold;
+}
+
+.meal-area-category {
+  border: dashed orange 2px;
+  margin: 5px;
+  padding: 10px;
+}
+
+@media(max-width: 800px) {
+  .container {
+    margin: 20px
+  }
+}
+
+@media(max-width: 500px) {
+  #meals-results {
+    grid-template-columns: repeat(2, 2fr);
+    margin: 10px
+  }
+  .container {
+    margin: 10px
+  }
 }

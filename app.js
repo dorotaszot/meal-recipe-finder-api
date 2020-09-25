@@ -9,6 +9,7 @@ const singleMealResult = document.getElementById('single-meal');
 
 function getMeals(e) {
   e.preventDefault();
+  singleMealResult.innerHTML = ''
   const term = mealSearch.value;
   if (term.trim()) {
     fetch(`https://www.themealdb.com/api/json/v1/1/search.php?s=${term}
@@ -19,6 +20,7 @@ function getMeals(e) {
         if (data.meals === null) {
           resultHeading.innerHTML = `<h3 class="meals-results">There are no results for'${term}'</h3>`
           mealsResults.innerHTML = '';
+          singleMealResult.innerHTML = '';
         } else {
           resultHeading.innerHTML = `<h3 class="meals-results">Search results for '${term}':</h3>`;
           mealsResults.innerHTML = data.meals.map(meal =>
@@ -50,29 +52,25 @@ function getSingleMeal(mealID) {
     })
 }
 
+
+
 function showSingleMealDetails(mealDetails) {
   const ingredients = [];
-
+  // singleMealResult.innerHTML = '';
   // Difficult!
   for (let i = 1; i <= 20; i++) {
     if (mealDetails[`strIngredient${i}`]) {
-      ingredients.push(`${mealDetails[`strMeasure${i}`]} - ${mealDetails[`strIngredient${i}`]}`);
+      ingredients.push(`${mealDetails[`strIngredient${i}`]} - ${mealDetails[`strMeasure${i}`]}`);
     } else {
       break;
     }
   }
   console.log(ingredients);
 
-  // if (mealDetails[strArea]) {
-
-  // } else {
-
-  // }
-
   singleMealResult.innerHTML = `
   <h2 class="center mtb">${mealDetails.strMeal}</h2>
   <img src="${mealDetails.strMealThumb}" class="img-center">
-  <div>
+  <div class="meal-area-category">
   ${mealDetails.strArea ? `<h4 class="center mtb">${mealDetails.strArea}</h4>` : ''}
   ${mealDetails.strCategory ? `<h4 class="center mtb">${mealDetails.strCategory}</h4>` : ''}
   </div>
@@ -80,7 +78,7 @@ function showSingleMealDetails(mealDetails) {
   <h3 class="mtb center">Ingredients:</h3>
   <ul>
     ${ingredients.map(ing =>
-    `<li>${ing}</li>`)
+    `<li class='ingredient-block'>${ing}</li>`)
       .join('')
     }
   </ul>
@@ -101,9 +99,26 @@ function showSingleMeal(e) {
     const mealID = mealInfo.getAttribute('data-mealID');
     getSingleMeal(mealID);
   }
-}
+};
+
+function showRandomMeal() {
+  mealsResults.innerHTML = '';
+  singleMealResult.innerHTML = '';
+
+  fetch('https://www.themealdb.com/api/json/v1/1/random.php')
+    .then(res => res.json())
+    .then(data => {
+      const randomMeal = data.meals[0];
+      console.log(randomMeal);
+      showSingleMealDetails(randomMeal);
+    })
+
+
+
+};
 
 // Event listeners
 searchBtn.addEventListener('click', getMeals);
 mealsResults.addEventListener('click', showSingleMeal);
+randomSearchBtn.addEventListener('click', showRandomMeal);
 
