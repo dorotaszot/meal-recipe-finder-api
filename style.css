@@ -5,9 +5,10 @@
 }
 
 body {
-  background-color: #1D2D50;
+  background-color: #1d2d50;
   color: #fff;
   font-family: Verdana, Geneva, Tahoma, sans-serif;
+  position: relative;
 }
 
 .container {
@@ -17,7 +18,6 @@ body {
   align-items: center;
   margin: auto;
   max-width: 800px;
-  
   text-align: center;
   margin-top: 2rem;
   margin-bottom: 2rem;
@@ -48,11 +48,12 @@ button {
   justify-content: center;
 }
 
-input, button {
+input,
+button {
   padding: 10px;
   border: none;
   outline: none;
- 
+
   height: 30px;
 }
 
@@ -60,14 +61,15 @@ button {
   width: 30px;
 }
 
- /* input:focus {
+/* input:focus {
    border: #133b5c;
  } */
-  button {
-    cursor: pointer;
-  }
+button {
+  cursor: pointer;
+}
 
-.meals-results, .mtb {
+.meals-results,
+.mtb {
   margin-top: 20px;
   margin-bottom: 20px;
 }
@@ -88,14 +90,13 @@ button {
 .meal-img {
   height: 100%;
   width: 100%;
- 
 }
 
 .meal-info {
   position: absolute;
   top: 0;
   left: 0;
-  background: rgba(0,0,0,0.7);
+  background: rgba(0, 0, 0, 0.7);
   height: 100%;
   width: 100%;
   display: flex;
@@ -103,7 +104,7 @@ button {
   justify-content: center;
   text-align: center;
   opacity: 0;
-  transition: ease .5s;
+  transition: ease 0.5s;
 }
 
 .meal-img-box:hover .meal-info {
@@ -140,18 +141,60 @@ button {
   padding: 10px;
 }
 
-@media(max-width: 800px) {
+/* To be sorted out */
+#newsletter-popup {
+  display: flex;
+  position: absolute;
+
+  top: 0;
+  left: 0;
+  /* bottom: 0;
+  right: 0; */
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100vh;
+  /* overflow: hidden; */
+  background-color: #1d2d50;
+  border: red solid 2px;
+}
+
+.popup-text {
+  /* position: relative; */
+  width: 400px;
+  height: 300px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border-radius: 5px;
+  text-align: center;
+  background-color: orange;
+}
+
+.popup-text h2,
+h3 {
+  margin: 20px;
+}
+
+.popup-text input {
+  padding: 20px;
+  font-size: 16px;
+}
+
+@media (max-width: 800px) {
   .container {
-    margin: 20px
+    margin: 20px;
   }
 }
 
-@media(max-width: 500px) {
+@media (max-width: 500px) {
   #meals-results {
     grid-template-columns: repeat(2, 2fr);
-    margin: 10px
+    margin: 10px;
   }
   .container {
-    margin: 10px
+    margin: 10px;
   }
 }

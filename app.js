@@ -6,6 +6,9 @@ const randomSearchBtn = document.getElementById('random-search-btn');
 const resultHeading = document.getElementById('result-heading');
 const mealsResults = document.getElementById('meals-results');
 const singleMealResult = document.getElementById('single-meal');
+const newsletterPopup = document.getElementById('newsletter-popup');
+
+mealSearch.focus();
 
 function getMeals(e) {
   e.preventDefault();
@@ -112,10 +115,13 @@ function showRandomMeal() {
       console.log(randomMeal);
       showSingleMealDetails(randomMeal);
     })
-
-
-
 };
+
+const newsletterTimeInterval = setInterval(showNewsletterPopup, 5000);
+
+function showNewsletterPopup() {
+  // newsletterPopup.style.display = 'flex';
+}
 
 // Event listeners
 searchBtn.addEventListener('click', getMeals);
